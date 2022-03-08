@@ -2,7 +2,7 @@
   "name": "rpsls",
   "version": "1.0.0",
   "description": "Rock paper scissors lizard spock",
-  "main": "main.js",
+  "main": "game.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
