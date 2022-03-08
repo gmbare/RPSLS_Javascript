@@ -1,0 +1,23 @@
+{
+  "name": "rpsls",
+  "version": "1.0.0",
+  "description": "Rock paper scissors lizard spock",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ToxicKimchi/RPSLS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ToxicKimchi/RPSLS/issues"
+  },
+  "homepage": "https://github.com/ToxicKimchi/RPSLS#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
