@@ -1,5 +1,6 @@
 "user strict";
 
+const prompt = require('prompt-sync')();
 
 class player {
     constructor (){
@@ -8,35 +9,35 @@ class player {
         this.gestures = {
             //rock
             0:{
-                weakness:['paper','spock'],
-                strength:['scissors','lizard']
+                name:'rock',
+                weakness:['paper','spock']
             },
             //paper
             1:{
-                weakness:['scissors','lizard'],
-                strength:['rock','spock']
+                name:'paper',
+                weakness:['scissors','lizard']
             },
             //scissors
             2:{
-                weakness:['rock','spock'],
-                strength:['paper','lizard']
+                name:'scissors',
+                weakness:['rock','spock']
             },
             //lizard
             3:{
-                weakness:['rock','scissors'],
-                strength:['spock','paper']
+                name:'lizard',
+                weakness:['rock','scissors']
             },
             //spock
             4:{
-                weakness:['lizard','paper'],
-                strength:['scissors','rock']
+                name:'spock',
+                weakness:['lizard','paper']
             },
         }
         this.hand = this.gestures.rock;
     }
     
-    chooseGesture(hand = prompt('')().toLowerCase()){
-        this.hand = this.gestures[hand]
+    chooseGesture(hand = prompt('').toLowerCase()){
+        return(this.hand = this.gestures[hand])
     }
 
 }

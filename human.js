@@ -4,16 +4,10 @@ const player = require('./player.js');
 
 
 class human extends player {
-    constructor(name = 'human'){
-        super(gestures)
+    constructor(name = 'human',count, hand,gestures){
+        super(gestures,hand,count)
         this.name = name;
-        this.hand = this.chooseGesture();
-        this.count = 0;
     }   
-    
-    chooseGesture(hand = prompt('')().toLowerCase()){
-        this.hand = hand
-    }
 }
 
 module.exports=human
