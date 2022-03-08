@@ -12,7 +12,7 @@ Paper disproves Spock 
 Spock vaporizes Rock   
 */
 
-
+const prompt = require('prompt-sync')
 const human = require('./human.js');
 const computer = require('./computer.js');
 
@@ -20,7 +20,7 @@ const computer = require('./computer.js');
 class game {
     constructor() {
         this.playerOne = new human('Player')
-        this.playerTwo = new computer('computer')
+        this.playerTwo = new computer('Computer')
     }
 
     playerChoice() {
@@ -30,6 +30,22 @@ class game {
 
     robotChoice(){
         return(`${this.playerTwo.name} played ${this.playerTwo.hand.name}`)
+    }
+
+    chooseGame(){
+        console.log("Would you like to play against another player or computer?\nSelect 1 for player\nSelect 2 for computer.");
+        let userChoice = prompt("");
+        switch (userChoice){
+            case '1':
+                this.playerTwo = new human('Player 2');
+                break;
+            case '2':
+                this.playerTwo = new computer('Computer');
+                break;
+            default:
+                console.log("Invalid Selection");
+                return this.chooseGame();
+        }
     }
 
 }
