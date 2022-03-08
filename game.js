@@ -12,20 +12,27 @@ Paper disproves Spock 
 Spock vaporizes Rock   
 */
 
-const prompt = require('prompt-sync')();
+
 const human = require('./human.js');
 const computer = require('./computer.js');
 
 
-let playerOne = new human('Player')
-let playerTwo = new computer('computer')
+class game {
+    constructor() {
+        this.playerOne = new human('Player')
+        this.playerTwo = new computer('computer')
+    }
 
+    playerChoice() {
+        console.log("Please choose a hand\n0=Rock\n1=Paper\n2=Scissors\n3=Lizard\n4=Spock\n")
+        return(`${this.playerOne.name} played ${this.playerOne.chooseGesture().name}`)
+    }
 
-function playerChoice(){
-    console.log("Please choose a hand\n0=Rock\n1=Paper\n2=Scissors\n3=Lizard\n4=Spock\n")
-    console.log(`${playerOne.name} played ${playerOne.chooseGesture().name}`)
+    robotChoice(){
+        return(`${this.playerTwo.name} played ${this.playerTwo.hand.name}`)
+    }
+
 }
 
-playerChoice()
-console.log(`${playerTwo.name} played ${playerTwo.hand.name}`)
 
+module.exports= game
