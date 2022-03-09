@@ -13,10 +13,8 @@ Spock vaporizes Rock  
 */
 
 const prompt = require('prompt-sync')();
-const player = require('./player.js');
 const human = require('./human.js');
 const computer = require('./computer.js')
-const clear = require('clear');
 
 
 class game {
@@ -65,9 +63,9 @@ class game {
         this.round = 0
         while ((this.playerOne.count < 2) && (this.playerTwo.count < 2)) {
             this.playerOne.hand = this.playerChoice(this.playerOne)
-            clear();
+            console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
             this.playerTwo.hand = this.playerChoice(this.playerTwo)
-            clear();
+            console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
             this.round++
             if (this.playerOne.hand.weakness.includes(this.playerTwo.hand.name)) {
                 this.playerTwo.count++;
