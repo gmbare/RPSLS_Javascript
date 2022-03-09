@@ -4,8 +4,8 @@ const player = require('./player.js');
 
 class computer extends player {
     constructor(name){
-        super()
-        this.name = name;
+        super(name)
+;
         //this.hand = this.chooseGesture((Math.floor(Math.random() * Object.keys(this.gestures).length)).toString());
     }
 
