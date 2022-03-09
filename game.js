@@ -14,12 +14,14 @@ Spock vaporizes Rock  
 
 const prompt = require('prompt-sync')();
 const player = require('./player.js');
+const human = require('./human.js');
+const computer = require('./computer.js')
 const clear = require('clear');
 
 
 class game {
     constructor() {
-        this.playerOne = new player('Player 1');
+        this.playerOne = new human(prompt("Please enter a Name: "));
     }
 
     playerChoice(player) {
@@ -28,7 +30,7 @@ class game {
             return (player.chooseGesture(player))
         }
         else {
-            return (player.chooseGesture(player,(Math.floor(Math.random() * Object.keys(player.gestures).length)).toString()))
+            return (player.chooseGesture())
         }
     }
 
@@ -41,10 +43,12 @@ class game {
         this.userChoice = prompt("");
         switch (this.userChoice) {
             case '1':
-                this.playerTwo = new player('Player 2');
+                this.playerOne.count = 0;
+                this.playerTwo = new human(prompt('Please enter a Name: '));
                 break;
             case '2':
-                this.playerTwo = new player('Computer');
+                this.playerOne.count = 0;
+                this.playerTwo = new computer('Computer');
                 break;
             case 'q':
             case null:
@@ -67,17 +71,17 @@ class game {
             this.round++
             if (this.playerOne.hand.weakness.includes(this.playerTwo.hand.name)) {
                 this.playerTwo.count++;
-                console.log(`${this.playerOne.name} played ${this.playerOne.hand.name} vs ${this.playerTwo.name}'s ${this.playerTwo.hand.name}\nPlayer Two is the winner of round ${this.round}`)
+                console.log(`${this.playerOne.name} played ${this.playerOne.hand.name} vs ${this.playerTwo.name}'s ${this.playerTwo.hand.name}\n${this.playerTwo.name} is the winner of round ${this.round}`)
             }
             else if (this.playerTwo.hand.weakness.includes(this.playerOne.hand.name)) {
                 this.playerOne.count++;
-                console.log(`${this.playerOne.name} played ${this.playerOne.hand.name} vs ${this.playerTwo.name}'s ${this.playerTwo.hand.name}\nPlayer One is the winner of round ${this.round}`)
+                console.log(`${this.playerOne.name} played ${this.playerOne.hand.name} vs ${this.playerTwo.name}'s ${this.playerTwo.hand.name}\n${this.playerOne.name} is the winner of round ${this.round}`)
             }
             else {
-                console.log(`Round ${this.round} ends in a tie\n`)
+                console.log(`${this.playerOne.name} played ${this.playerOne.hand.name} vs ${this.playerTwo.name}'s ${this.playerTwo.hand.name}\nRound ${this.round} ends in a tie!`)
             }
         }
-        return (this.playerOne.count > this.playerTwo.count ? 'Player One is the Winner' : 'Player Two is the winner')
+        return (this.playerOne.count > this.playerTwo.count ? `${this.playerOne.name} is the Winner` : `${this.playerTwo.name} is the winner`)
     }
 
     playAgain(){

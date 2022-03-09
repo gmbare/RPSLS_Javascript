@@ -6,8 +6,8 @@ let mainGame = new (game)
 
 function gameTime() {
     mainGame.chooseGame();
-    mainGame.roundWinner()
-    
+    console.log(mainGame.roundWinner())
+
     if (mainGame.playAgain()){
         return(gameTime())
     }
