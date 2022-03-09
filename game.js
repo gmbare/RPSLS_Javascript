@@ -85,7 +85,7 @@ class game {
     playAgain(){
         console.log('Would you like to play again?\n(Y)es or (N)o')
         this.boolPlayAgain = prompt('')
-        return(/^y|^yes/i.test(this.boolPlayAgain))
+        return(/^y|^yes/i.test(this.boolPlayAgain)?true:/^n|^no/i.test(this.boolPlayAgain)?false:this.playAgain())
     }
 
 }
