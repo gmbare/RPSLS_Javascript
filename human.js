@@ -4,9 +4,9 @@ const player = require('./player.js');
 
 
 class human extends player {
-    constructor(name = 'human',count, hand,gestures){
-        super(gestures,hand,count)
-        this.name = name;
+    constructor(){
+        super()
+        this.name = "Player";
     }   
 }
 

@@ -21,10 +21,13 @@ const player = require('./player.js');
 class game {
     constructor() {
         this.playerOne = new human('Player 1');
+        this.playerTwo = null;
     }
 
     playerChoice(player) {
-        console.log(`${player.name} : Please choose a hand\n0=Rock\n1=Paper\n2=Scissors\n3=Lizard\n4=Spock\n`)
+        if (player.name === 'Player'){
+            console.log(`${player.name} : Please choose a hand\n0=Rock\n1=Paper\n2=Scissors\n3=Lizard\n4=Spock\n`)
+        }
         return (player.chooseGesture())
         // return(`${player.name} played ${player.chooseGesture().name}`)
     }
@@ -57,13 +60,19 @@ class game {
             this.round ++
             if (this.playerOne.hand.weakness.includes(this.playerTwo.hand.name)) {
                 this.playerTwo.count++;
-                console.log(`Player Two is the winner of round ${this.round}`)
+                console.log(`\n\nPlayer One chose ${this.playerOne.hand.name}.`);
+                console.log(`Player Two chose ${this.playerTwo.hand.name}.\n\n`)
+                console.log(`Player Two is the winner of round ${this.round}\n`)
             }
             else if (this.playerTwo.hand.weakness.includes(this.playerOne.hand.name)) {
                 this.playerOne.count++;
-                console.log(`Player One is the winner of round ${this.round}`)
+                console.log(`\n\nPlayer One chose ${this.playerOne.hand.name}.`);
+                console.log(`Player Two chose ${this.playerTwo.hand.name}.\n\n`)
+                console.log(`Player One is the winner of round ${this.round}\n`)
             }
             else {
+                console.log(`\n\nPlayer One chose ${this.playerOne.hand.name}.`);
+                console.log(`Player Two chose ${this.playerTwo.hand.name}.\n\n`)
                 console.log(`Round ${this.round} ends in a tie\n`)
             }
         }

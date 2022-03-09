@@ -33,10 +33,11 @@ class player {
                 weakness:['lizard','paper']
             },
         }
-        this.hand = this.gestures.rock;
+        this.hand = 1;
     }
     
-    chooseGesture(hand = prompt('').toLowerCase()){
+    chooseGesture(hand){
+        hand = prompt('').toLowerCase()
         return(this.hand = this.gestures[hand])
     }
 
