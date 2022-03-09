@@ -1,13 +1,19 @@
 "use strict";
 
 const game = require('./game.js')
-let mainGame = new(game)
+let mainGame = new (game)
 
-console.log(mainGame.chooseGame());
-// console.log(`${mainGame.playerChoice(mainGame.playerOne).name} \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`);
-// console.log(`${mainGame.playerChoice(mainGame.playerTwo).name} \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`);
 
-// console.log(`${mainGame.playerOne.name} played ${mainGame.playerOne.hand.name}`)
-// console.log(`${mainGame.playerTwo.name} played ${mainGame.playerTwo.hand.name}`)
+function gameTime() {
+    mainGame.chooseGame();
+    mainGame.roundWinner()
+    
+    if (mainGame.playAgain()){
+        return(gameTime())
+    }
+    else{
+        console.log("Thanks for playing!")
+    }
+}
 
-console.log(`\n${mainGame.roundWinner()}`)
+gameTime()
